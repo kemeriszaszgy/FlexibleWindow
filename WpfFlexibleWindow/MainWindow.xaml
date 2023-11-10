@@ -1,0 +1,129 @@
+﻿<Window x:Class="WpfFlexibleWindow.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfFlexibleWindow"
+        mc:Ignorable="d"
+        Title="MainWindow" MinHeight="450" MinWidth="650" Height="Auto" Width="Auto" SizeToContent="WidthAndHeight" d:DesignHeight="267.868" d:DesignWidth="568.064">
+    <Window.Resources>
+        <Style x:Key="ButtonStyle1" 
+               TargetType="{x:Type Button}">
+            <Setter Property="Foreground"
+                    Value="Red" />
+            <Setter Property="Margin"
+                    Value="10" />
+        </Style>
+        <Style x:Key="ButtonStyle2" 
+               TargetType="{x:Type Button}">
+            <Setter Property="Foreground"
+                    Value="Blue" />
+            <Setter Property="Margin"
+                    Value="10" />
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <DockPanel Name="pControls"  Grid.Row="0" VerticalAlignment="Top" HorizontalAlignment="Stretch" Background="PaleVioletRed">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="4" Background="Orange" Name="pDomain">
+                </StackPanel>
+                <DockPanel Grid.Column="1" Background="Green" Margin="5">
+                    <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Height="60" Width="200" Background="Blue" Name="pName">
+                        <Label Background="AliceBlue" HorizontalAlignment="Left" FontStyle="Italic" VerticalAlignment="Top" Height="25" Width="190" Margin="3" Content="Name" Name="lName">
+                        </Label>
+                        <TextBlock Background="Bisque" Text="Name plesae" TextAlignment="Left" HorizontalAlignment="Left" VerticalAlignment="Top" Height="20" Width="190" Margin="3" Name="txtName">
+                        </TextBlock>
+                    </StackPanel>
+                    <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Height="60" Width="200" Background="Blue" Name="pNote">
+                        <Label Background="AliceBlue" HorizontalAlignment="Left" FontStyle="Italic" VerticalAlignment="Top" Height="25" Width="190" Margin="3" Content="Note" Name="lNote">
+                        </Label>
+                        <TextBlock Background="Bisque" Text="Note plesae" TextAlignment="Left" HorizontalAlignment="Left" VerticalAlignment="Top" Height="20" Width="190" Margin="3" Name="txtNote">
+                        </TextBlock>
+                    </StackPanel>
+                    <StackPanel VerticalAlignment="Stretch" Width="150" Height="60" HorizontalAlignment="Right" Background="Gray" Name="pRefresh">
+                        <Button Style="{StaticResource ButtonStyle2}" Content="Refresh" HorizontalAlignment="Left" VerticalAlignment="Center" Height="20" Width="100" Margin="25,20, 25,20" Name="bRefresh">
+                        </Button>
+                    </StackPanel>
+                </DockPanel>
+            </Grid>
+        </DockPanel>
+        <DockPanel Name="pMiddleBody"  Grid.Row="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="LightSalmon">
+            <Grid Name="gMiddleBody" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition  Width="Auto" />
+                    <ColumnDefinition  Width="7" />
+                    <ColumnDefinition  Width="*" />
+                </Grid.ColumnDefinitions>
+                <DockPanel Name="pLeft" Grid.Column="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="Brown">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <StackPanel Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="40" Background="Purple" Name="pLeftAction1">
+                            <Button Style="{StaticResource ButtonStyle2}" Content="Action One" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="20" Width="100" Margin="10" Name="bAction1">
+                            </Button>
+                        </StackPanel>
+                        <StackPanel Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="40" Background="Purple" Name="pLeftAction2">
+                            <Button Style="{StaticResource ButtonStyle2}" Content="Action Two" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="20" Width="100" Margin="10" Name="bAction2">
+                            </Button>
+                        </StackPanel>
+                    </Grid>
+                </DockPanel>
+                <GridSplitter Grid.Column="1" Name="spLeft" ShowsPreview="true" ResizeDirection="Columns" VerticalAlignment="Stretch" HorizontalAlignment="Left" Background="Black" Width="7"/>
+                <DockPanel Name="pRightCombo" Grid.Column="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="Yellow">
+                    <Grid Name="gRightCombo" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition  Width="*" />
+                            <ColumnDefinition  Width="7" />
+                            <ColumnDefinition  Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <DockPanel Name="pGrid" Grid.Column="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="Yellow">
+                            <DataGrid Name="gData"  BorderBrush="Black" BorderThickness="2" HorizontalGridLinesBrush="Black" VerticalGridLinesBrush="Purple" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible" AlternatingRowBackground="AliceBlue" Background="Beige" HorizontalAlignment="Stretch" Margin="10,10,10,10" VerticalAlignment="Stretch" AutoGenerateColumns="True">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Foreground="Black" Width="30" Header="Id" IsReadOnly="false" />
+                                    <DataGridTextColumn Foreground="Black" Width="90" Header="Name" IsReadOnly="false" />
+                                    <DataGridTextColumn Foreground="Black" Width="160" Header="Note" IsReadOnly="false" />
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </DockPanel>
+                        <GridSplitter Grid.Column="1" Name="spRight" ShowsPreview="true" Background="Black" FlowDirection="RightToLeft" ResizeDirection="Columns" VerticalAlignment="Stretch" HorizontalAlignment="Center" Width="7"/>
+                        <DockPanel Name="pRight" Grid.Column="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="LightSkyBlue">
+                            <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="40" Background="Purple" Name="pRightAction1">
+                                <Button Style="{StaticResource ButtonStyle2}" Content="Action One" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="20" Width="100" Margin="10" Name="bRightAction1">
+                                </Button>
+                            </StackPanel>
+                        </DockPanel>
+                    </Grid>
+                </DockPanel>
+            </Grid>
+        </DockPanel>
+        <DockPanel Name="pBottom"  Grid.Row="2" Height="40" VerticalAlignment="Top" HorizontalAlignment="Stretch" Background="Red">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="3" Background="LightGreen" Name="footLine" />
+                <DockPanel Grid.Row="0" Background="Azure" Margin="2">
+                    <StackPanel VerticalAlignment="Stretch" Width="110" HorizontalAlignment="Left" Background="DarkGoldenrod" Name="pCancel">
+                        <Button Style="{StaticResource ButtonStyle2}" Content="Cancel" HorizontalAlignment="Left" VerticalAlignment="Center" Height="22" Width="100" Margin="5" Name="bCancel" />
+                    </StackPanel>
+                    <StackPanel VerticalAlignment="Stretch" Width="110" HorizontalAlignment="Right" Background="Gray" Name="pClose">
+                        <Button Style="{StaticResource ButtonStyle2}" Content="Close" HorizontalAlignment="Left" VerticalAlignment="Center" Height="22" Width="100" Margin="5" Name="bClose" />
+                    </StackPanel>
+                </DockPanel>
+            </Grid>
+        </DockPanel>
+    </Grid>
+</Window>
