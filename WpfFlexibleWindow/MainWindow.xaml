@@ -35,9 +35,9 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <StackPanel Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="4" Background="Orange" Name="pDomain">
+                <StackPanel Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="4" Background="Orange" Name="pDomain">
                 </StackPanel>
-                <DockPanel Grid.Column="1" Background="Green" Margin="5">
+                <DockPanel Grid.Row="1" Background="Green" Margin="5">
                     <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Height="60" Width="200" Background="Blue" Name="pName">
                         <Label Background="AliceBlue" HorizontalAlignment="Left" FontStyle="Italic" VerticalAlignment="Top" Height="25" Width="190" Margin="3" Content="Name" Name="lName">
                         </Label>
