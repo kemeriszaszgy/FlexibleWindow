@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfFlexibleWindow"
         mc:Ignorable="d"
-        Title="MainWindow" MinHeight="450" MinWidth="650" Height="Auto" Width="Auto" SizeToContent="WidthAndHeight" d:DesignHeight="267.868" d:DesignWidth="568.064">
+        Title="MainWindow" MinHeight="450" MinWidth="650" Height="600" Width="800" SizeToContent="Manual" d:DesignHeight="267.868" d:DesignWidth="568.064">
     <Window.Resources>
         <Style x:Key="ButtonStyle1" 
                TargetType="{x:Type Button}">
@@ -89,13 +89,28 @@
                             <ColumnDefinition  Width="Auto" />
                         </Grid.ColumnDefinitions>
                         <DockPanel Name="pGrid" Grid.Column="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="Yellow">
-                            <DataGrid Name="gData"  BorderBrush="Black" BorderThickness="2" HorizontalGridLinesBrush="Black" VerticalGridLinesBrush="Purple" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible" AlternatingRowBackground="AliceBlue" Background="Beige" HorizontalAlignment="Stretch" Margin="10,10,10,10" VerticalAlignment="Stretch" AutoGenerateColumns="True">
-                                <DataGrid.Columns>
-                                    <DataGridTextColumn Foreground="Black" Width="30" Header="Id" IsReadOnly="false" />
-                                    <DataGridTextColumn Foreground="Black" Width="90" Header="Name" IsReadOnly="false" />
-                                    <DataGridTextColumn Foreground="Black" Width="160" Header="Note" IsReadOnly="false" />
-                                </DataGrid.Columns>
-                            </DataGrid>
+                            <DockPanel Name="pInnerGrid" Grid.Column="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="Auto" Background="Yellow">
+                                <DataGrid ColumnWidth="Auto"  Name="gData"  BorderBrush="Black" BorderThickness="2" 
+                                      HorizontalGridLinesBrush="Black" VerticalGridLinesBrush="Purple" 
+                                      HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible" 
+                                      AlternatingRowBackground="AliceBlue" Background="Beige" 
+                                      Margin="10,10,10,10" AutoGenerateColumns="False" FrozenColumnCount="2">
+                                    <!--HorizontalAlignment="Stretch" VerticalAlignment="Stretch"-->
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Foreground="Black" Width="30" Header="Id" IsReadOnly="false" />
+                                        <DataGridTextColumn Foreground="Black" Width="90" Header="Name" IsReadOnly="false" />
+                                        <DataGridTextColumn Foreground="Black" Width="160" Header="Note" IsReadOnly="false" />
+                                        <DataGridTextColumn Foreground="Black" Width="160" Header="Organization" IsReadOnly="false" />
+                                        <DataGridTextColumn Foreground="Black" Width="160" Header="Department" IsReadOnly="false" />
+                                        <DataGridTextColumn Foreground="Black" Width="160" Header="Phone" IsReadOnly="false" />
+                                        <DataGridTextColumn Foreground="Black" Width="160" Header="Address" IsReadOnly="false" />
+                                        <DataGridTextColumn Foreground="Black" Width="160" Header="City" IsReadOnly="false" />
+                                        <DataGridTextColumn Foreground="Black" Width="160" Header="Country" IsReadOnly="false" />
+                                        <DataGridTextColumn Foreground="Black" Width="160" Header="Email" IsReadOnly="false" />
+                                        <DataGridTextColumn Foreground="Black" Width="160" Header="Vision" IsReadOnly="false" />
+                                    </DataGrid.Columns>
+                                </DataGrid>
+                            </DockPanel>
                         </DockPanel>
                         <GridSplitter Grid.Column="1" Name="spRight" ShowsPreview="true" Background="Black" FlowDirection="RightToLeft" ResizeDirection="Columns" VerticalAlignment="Stretch" HorizontalAlignment="Center" Width="7"/>
                         <DockPanel Name="pRight" Grid.Column="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="LightSkyBlue">
